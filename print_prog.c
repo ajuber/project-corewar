@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:40:52 by ajubert           #+#    #+#             */
-/*   Updated: 2017/01/31 14:08:52 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/08 18:17:15 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ unsigned char *ft_yo_ne_se_pa(t_e *e, unsigned char *print, int k, char **str, i
 	char *nb_c;
 
 	l = 0;
-	if (ft_strcmp(str[j], "live") == 0 || ft_strcmp(str[j], "ld") == 0 || ft_strcmp(str[j], "and") || ft_strcmp(str[j], "or") == 0 || ft_strcmp(str[j], "xor") == 0 || ft_strcmp(str[j], "lld") == 0)
+	if (ft_strcmp(str[j], "live") == 0 || ft_strcmp(str[j], "ld") == 0 || ft_strcmp(str[j], "and") == 0 || ft_strcmp(str[j], "or") == 0 || ft_strcmp(str[j], "xor") == 0 || ft_strcmp(str[j], "lld") == 0)
 		dir_sepa = 4;
 	else
 		dir_sepa = 2;
@@ -95,10 +95,13 @@ void	print_prog(t_e *e)
 			j = 1;
 		k = 0;
 		print[k] = search_code(str[j], e);
-		k++;
+//		k++;
 		i = j + 1;
 		if (test_opcode(str[j]))
+		{
+			k++;
 			print[k] = opcode(str, i, size_str);
+		}
 		while (i < size_str)
 		{
 			k++;
