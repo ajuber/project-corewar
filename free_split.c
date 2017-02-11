@@ -7,7 +7,7 @@ void	free_split(char ***str, int size)
 	i = 0;
 	if (str && str[0])
 	{
-		while (i < size)
+		while (i < size + 1)
 		{
 			free_line(&str[0][i]);
 			i++;
