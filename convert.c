@@ -14,15 +14,15 @@
 #include "libft.h"
 #include <string.h>
 
-static char	*exception(char *result)
+static char	*exception(char *result, int size)
 {
 	int i;
 
 	i = 0;
-		result = (char*)malloc(9);
+		result = (char*)malloc(size);
 		if (!result)
 			return (NULL);
-		while (i < 9)
+		while (i < size)
 		{
 		result[i] = 0;
 		i++;
@@ -34,14 +34,12 @@ static char	*exception(char *result)
 char		*convert(unsigned int n, int size)
 {
 	int		i;
-	int		is_negative;
 	char	*result;
 
 	i = 0;
-	is_negative = 0;
 	result = NULL;
 	if (n == 0)
-		return (exception(result));
+		return (exception(result, size));
 	result = (char*)malloc(size);
 	if (!result)
 		return (NULL);

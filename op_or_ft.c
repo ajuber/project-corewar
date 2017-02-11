@@ -61,14 +61,12 @@ char	*second_word(char *str)
 int		op_or_ft(char *str, t_e *e)
 {
 	char *word;
-	char *word1;
 	int i;
 	int op;
 
 	op = 0;
 //	ft_printf("----------dans op_or_ft-----------\n");
 	word = first_word(str);
-	word1 = second_word(str);
 //	ft_printf("%s\n",word);
 	if (word == NULL)
 		return (0);
@@ -78,12 +76,22 @@ int		op_or_ft(char *str, t_e *e)
 	while (i < NB_OP)
 	{
 		if (op == 0 && ft_strcmp(word, e->liste_op[i]) == 0)
+		{
+			free_line(&word);
 			return (1);
+		}
 		if (op == 3 && ft_strcmp(word, e->liste_op[i]) == 0)
+		{
+			free_line(&word);
 			return (2);
+		}
 		i++;
 	}
 	if (op == 3)
+	{
+			free_line(&word);
 		return (3);
+	}
+			free_line(&word);
 	return (0);
 }

@@ -20,5 +20,6 @@ int		recup_file(t_e *e)
 			exit (0);
 		free_line(&e->line);
 	}
+		free_line(&e->line);
 	return (0);
 }

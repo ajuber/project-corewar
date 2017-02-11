@@ -15,9 +15,7 @@
 int		count_nb_instruct(t_liste *liste, t_e *e)
 {
 	int r;
-	t_liste *tmp;
 
-	tmp = liste;
 	r = 0;
 	while (liste)
 	{

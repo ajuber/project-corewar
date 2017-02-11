@@ -17,6 +17,7 @@ int		main(int argc, char **argv)
 	t_e e;
 	int i;
 	t_liste *tmp;
+	char *pl;
 //	int j;
 //	int k;
 
@@ -71,11 +72,13 @@ int		main(int argc, char **argv)
 		else if (op_or_ft(tmp->str, &e) == 3)
 		{
 			e.tab[i].nb_octet = 0;
-			if (!(e.tab[i].ft = ft_strsub(first_word(tmp->str), 0, ft_strlen(first_word(tmp->str)) - 1)))
+			pl = first_word(tmp->str);
+			if (!(e.tab[i].ft = ft_strsub(pl, 0, ft_strlen(pl) - 1)))
 				exit(0);
 			e.tab[i].cmd = 3;
 			e.tab[i].nb_octet = 0;
 			e.tab[i].str = ft_strdup(tmp->str);
+			free_line(&pl);
 		}
 		else
 		{
@@ -120,4 +123,7 @@ int		main(int argc, char **argv)
 		i++;
 	}
 	print_prog(&e);
+	ft_printf("------------aieee---------");
+	ft_free_all(&e);
+	return (0);
 }

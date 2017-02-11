@@ -72,5 +72,6 @@ int		count_octet(char *str, int cmd)
 		}
 		i++;
 	}
+	free_split(&op, size);
 	return (nb_octet);
 }

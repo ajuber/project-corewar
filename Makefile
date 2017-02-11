@@ -31,7 +31,11 @@ SRC_C=	main_asm.c\
 		print_prog.c\
 		ft_count_to.c\
 		opcode.c\
-		search_code.c
+		search_code.c\
+		ft_free_all.c\
+		free_split.c\
+		free_tab.c\
+		free_liste_op.c
 
 SRC_O=		$(SRC_C:.c=.o)
 

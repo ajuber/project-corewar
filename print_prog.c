@@ -69,6 +69,7 @@ unsigned char *ft_yo_ne_se_pa(t_e *e, unsigned char *print, int k, char **str, i
 		nb_c = convert((unsigned int)nb, 1);
 		print[k] = nb_c[0];
 	}
+	free_line(&nb_c);
 	return (print);
 }
 
@@ -81,6 +82,7 @@ void	print_prog(t_e *e)
 	char **str;
 	int size_str;
 	unsigned char *print;
+	unsigned char **tmp;
 
 	l = 0;
 	while (l < e->nb_instruct)
@@ -88,6 +90,7 @@ void	print_prog(t_e *e)
 		while (e->tab[l].cmd == 3)
 			l++;
 		print = malloc(sizeof(unsigned char) * e->tab[l].nb_octet);
+		ft_printf("\n%s", e->tab[l].str);
 		str = ft_strsplit_asm(e->tab[l].str, &size_str);
 		if (e->tab[l].cmd == 1)
 			j = 0;
@@ -114,6 +117,10 @@ void	print_prog(t_e *e)
 			ft_printf_fd(e->fd1, "%c", print[k]);
 			k++;
 		}
+		tmp = &print;
+		free_line((char **)tmp);
+		free_split(&str, e->tab[l].nb_octet);
 		l++;
+	ft_printf("ojkoh");
 	}
 }

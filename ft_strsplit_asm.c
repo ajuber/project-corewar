@@ -34,6 +34,7 @@ static int		ft_nb_word(char const *s)
 		if (s[i] == ' ' || s[i] == '\t')
 			word = 1;
 		i++;
+		ft_putchar(s[i]);
 	}
 	return (nb_word);
 }

@@ -65,5 +65,10 @@ unsigned char			search_code(char *str, t_e *e);
 void					print_prog(t_e *e);
 unsigned char			opcode(char **str, int i, int size_str);
 int						ft_count_to(t_e *e, int i, char *str);
+void					ft_free_all(t_e *e);
+void					free_split(char ***str, int size);
+void					free_tab(t_op_ft **tab, int size);
+void					ft_free_list_l(t_liste **begin_list);
+void					free_liste_op(char ***tab);
 
 #endif
