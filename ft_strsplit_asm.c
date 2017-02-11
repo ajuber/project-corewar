@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/16 11:59:50 by ajubert           #+#    #+#             */
-/*   Updated: 2017/01/04 16:14:35 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/11 16:36:32 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int		ft_nb_word(char const *s)
 		if (s[i] == ' ' || s[i] == '\t')
 			word = 1;
 		i++;
-		ft_putchar(s[i]);
+//		ft_putchar(s[i]);
 	}
 	return (nb_word);
 }

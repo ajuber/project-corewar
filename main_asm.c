@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 13:07:35 by ajubert           #+#    #+#             */
-/*   Updated: 2017/01/31 15:45:15 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/11 16:20:48 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,9 @@ int		main(int argc, char **argv)
 	tmp = e.liste;
 	while (i < e.nb_instruct)
 	{
-		ft_printf("ici%d\n", i);
-		while (op_or_ft(tmp->str, &e) == 0)
+	while (op_or_ft(tmp->str, &e) == 0)
 		{
-				ft_printf("while %d\n",op_or_ft(tmp->str,&e));
+//				ft_printf("while %d\n",op_or_ft(tmp->str,&e));
 				tmp = tmp->next;
 		}
 		if (op_or_ft(tmp->str, &e) == 2)
@@ -82,12 +81,12 @@ int		main(int argc, char **argv)
 		}
 		else
 		{
-			ft_printf("operation");
+//			ft_printf("operation");
 			e.tab[i].cmd = 1;
 	//		ft_printf("operation");
 			e.tab[i].nb_octet = count_octet(tmp->str, e.tab[i].cmd);
 	//		ft_printf("operation");
-			ft_printf("print %d", e.tab[i].nb_octet);
+//			ft_printf("print %d", e.tab[i].nb_octet);
 			e.header.prog_size += e.tab[i].nb_octet;
 			e.tab[i].str = ft_strdup(tmp->str);
 	//		ft_printf("operation");
@@ -106,16 +105,12 @@ int		main(int argc, char **argv)
 	ft_putstr_size_fd(e.fd1, e.header.prog_name,PROG_NAME_LENGTH);
 	e.header.size = (unsigned char*)convert(e.header.prog_size, 8);
 	i = 0;
-	ft_printf("%d", e.header.prog_size);
-	ft_printf("plop");
 	while (i < 8)
 	{
 		ft_printf_fd(e.fd1, "%c", e.header.size[i]);
 		i++;
 	}
-	ft_printf("plop");
 	ft_putstr_size_fd(e.fd1, e.header.comment, COMMENT_LENGTH);
-	ft_printf("plop lvkfw kej");
 	i = 0;
 	while (i < 4)
 	{
@@ -123,7 +118,8 @@ int		main(int argc, char **argv)
 		i++;
 	}
 	print_prog(&e);
-	ft_printf("------------aieee---------");
 	ft_free_all(&e);
+	while (1)
+	{}
 	return (0);
 }

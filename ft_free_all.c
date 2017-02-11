@@ -5,6 +5,7 @@ void	ft_free_all(t_e *e)
 	unsigned char **tmp;
 
 	tmp = &e->header.magic;
+	ft_printf("\ndans ft_free_all \n");
 	free_line((char **)tmp);
 	free_tab(&e->tab, e->nb_instruct);
 	ft_free_list_l(&e->liste);

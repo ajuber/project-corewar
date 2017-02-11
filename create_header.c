@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 18:38:53 by ajubert           #+#    #+#             */
-/*   Updated: 2017/01/31 12:07:26 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/11 16:32:57 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	create_header(t_e *e)
 		exit(0);
 //	ft_bzero(e->header.prog_name, sizeof(char*));
 	e->header.prog_name = ft_strncpy(e->header.prog_name, &tmp->str[i], j);
-	ft_printf("progname : %s", e->header.prog_name);
+//ft_printf("progname : %s", e->header.prog_name);
 	while (tmp)
 	{
 		if (ft_strstr(tmp->str, COMMENT_CMD_STRING))
