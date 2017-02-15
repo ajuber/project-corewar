@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:40:52 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/11 17:43:59 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/15 15:11:07 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		test_opcode(char *str)
 	return (1);
 }
 
-unsigned char *ft_yo_ne_se_pa(/*t_e *e,*/ unsigned char *print, int *k, char **str, int i, int j, int n)
+unsigned char *ft_yo_ne_se_pa(t_e *e, unsigned char *print, int *k, char **str, int i, int j, int n)
 {
 	int dir_sepa;
 	int ind_sepa;
@@ -44,9 +44,10 @@ unsigned char *ft_yo_ne_se_pa(/*t_e *e,*/ unsigned char *print, int *k, char **s
 			nb = ft_atoi(&str[i][l]);
 		else if (ft_isalpha(str[i][l + 1]))
 		{
-		//	ft_printf("%d    %s", i, str[i]);
-		//	nb = ft_count_to(e, n, str[i]);
-			nb = n-n;
+			ft_printf("%d    %s\n", i, str[i]);
+			nb = ft_count_to(e, n, str[i]);
+		//	nb = n-n;
+			ft_printf("  %d", e->nb_instruct);
 		}
 		m = 0;
 		nb_c = convert((unsigned int)nb, dir_sepa);
@@ -115,7 +116,7 @@ void	print_prog(t_e *e)
 		while (i < size_str)
 		{
 			k++;
-			print = ft_yo_ne_se_pa(/*e,*/ print, &k, str, i, j, l);
+			print = ft_yo_ne_se_pa(e, print, &k, str, i, j, l);
 			k--;
 			i++;
 		}

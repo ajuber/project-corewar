@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 13:07:35 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/11 16:20:48 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/15 14:47:41 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,10 @@ int		main(int argc, char **argv)
 		}
 		if (op_or_ft(tmp->str, &e) == 2)
 		{
-			if (!(e.tab[i].ft = ft_strsub(first_word(tmp->str), 0, ft_strlen(first_word(tmp->str)) - 1)))
+			pl = first_word(tmp->str);
+			if (!(e.tab[i].ft = ft_strsub(pl, 0, ft_strlen(pl) - 1)))
 				exit(0);
+			ft_printf("tab dans main  %s\n", e.tab[i].ft);
 			e.tab[i].cmd = 2;
 			e.tab[i].nb_octet = count_octet(tmp->str, e.tab[i].cmd);
 			e.header.prog_size += e.tab[i].nb_octet;
@@ -72,8 +74,10 @@ int		main(int argc, char **argv)
 		{
 			e.tab[i].nb_octet = 0;
 			pl = first_word(tmp->str);
+			ft_printf("pl : %s\n", pl);
 			if (!(e.tab[i].ft = ft_strsub(pl, 0, ft_strlen(pl) - 1)))
 				exit(0);
+			ft_printf("tab dans main  %s\n", e.tab[i].ft);
 			e.tab[i].cmd = 3;
 			e.tab[i].nb_octet = 0;
 			e.tab[i].str = ft_strdup(tmp->str);

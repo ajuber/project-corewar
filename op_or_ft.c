@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 10:54:24 by ajubert           #+#    #+#             */
-/*   Updated: 2017/01/11 17:54:28 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/15 14:50:19 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*first_word(char *str)
 	{
 		i++;
 	}
-	while (str[i + j] && (ft_isalpha(str[i + j]) == 1 || ft_strchr(":%#", str[i + j])))
+	while (str[i + j] && (!ft_strchr(" \t", str[i + j])))
 	{
 		j++;
 	}
@@ -45,11 +45,11 @@ char	*second_word(char *str)
 	i = 0;
 	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
 		i++;
-	while (str[i + j] && (ft_isalpha(str[i + j]) == 1 || ft_strchr(":%#", str[i + j])))
+	while (str[i + j] && (!ft_strchr(" \t", str[i + j])))
 		i++;
 	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
 		i++;
-	while (str[i + j] && (ft_isalpha(str[i + j]) == 1 || ft_strchr(":%#", str[i + j])))
+	while (str[i + j] && (!ft_strchr(" \t", str[i + j])))
 		j++;
 	if (j == 0)
 		return (NULL);
@@ -63,10 +63,12 @@ int		op_or_ft(char *str, t_e *e)
 	char *word;
 	int i;
 	int op;
+	char *word2;
 
 	op = 0;
 //	ft_printf("----------dans op_or_ft-----------\n");
 	word = first_word(str);
+	word2 = second_word(str);
 //	ft_printf("%s\n",word);
 	if (word == NULL)
 		return (0);
