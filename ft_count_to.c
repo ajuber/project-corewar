@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 15:48:44 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/15 15:33:48 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/16 17:03:54 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int		ft_count_to(t_e *e, int i, char *str1)
 	j = 0;
 	while (i - j >= 0)
 	{
+		if (j == 0)
+			res += e->tab[i - j].nb_octet;
 		res -= e->tab[i - j].nb_octet;
 		if (e->tab[i - j].cmd == 3 || e->tab[i- j].cmd == 2)
 			ft_printf("%s      %s\n", e->tab[i - j].ft, str);

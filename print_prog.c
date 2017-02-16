@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:40:52 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/15 15:11:07 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/16 16:43:58 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ void	print_prog(t_e *e)
 	{
 		while (l < e->nb_instruct && e->tab[l].cmd == 3)
 			l++;
+		if (l >= e->nb_instruct)
+			return ;
 		print = malloc(sizeof(unsigned char) * e->tab[l].nb_octet);
 	//	ft_printf("\n%s", e->tab[l].str);
 		str = ft_strsplit_asm(e->tab[l].str, &size_str);
@@ -117,6 +119,7 @@ void	print_prog(t_e *e)
 		{
 			k++;
 			print = ft_yo_ne_se_pa(e, print, &k, str, i, j, l);
+			ft_printf("aie");
 			k--;
 			i++;
 		}
@@ -133,5 +136,6 @@ void	print_prog(t_e *e)
 		free_split(&str, size_str);
 //	ft_printf("ojkoh3\n");
 		l++;
+			ft_printf("\nl : %d      nb_instruct : %d\n", l, e->nb_instruct);
 	}
 }
