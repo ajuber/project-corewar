@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 12:06:30 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/11 16:35:26 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/17 17:08:12 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		count_octet(char *str, int cmd)
 	int		j;
 
 	size = 0;
+	ft_printf("%s\n", str);
 	if (!(op = ft_strsplit_asm((const char *)str, &size)))
 		exit(0);
 	nb_octet = 1;
@@ -39,21 +40,25 @@ int		count_octet(char *str, int cmd)
 //	i = 1;
 	while (i < size)
 	{
+		ft_printf(" %s", op[i]);
+		ft_printf("op : '%s'", op[cmd - 1]);
 		j = 0;
 		if (op[i][j] == ',')
 			j++;
-		if (op[i][j] == 'r' && ft_isdigit(op[i][j + 1]))
+		if (op[i][j] == 'r' && ft_isdigit(op[i][j + 1]) && ft_strstr(":", op[i]) == 0)
 		{
 			nb_octet += 1;
 		}
 		if (op[i][j] == DIRECT_CHAR)
 		{
+				ft_printf("here");
 			if (ft_strcmp(op[cmd - 1], "zjmp") == 0 || ft_strcmp(op[cmd - 1], "ldi") == 0 ||ft_strcmp(op[cmd - 1], "sti") == 0 ||ft_strcmp(op[cmd - 1], "fork") == 0 ||ft_strcmp(op[cmd - 1], "lldi") == 0 ||ft_strcmp(op[cmd - 1], "lfork") == 0)
 			{
 				nb_octet += 2;
 			}
-			else if (ft_strcmp(op[cmd - 1], "live") == 0 || ft_strcmp(op[cmd - 1], "ld") == 0 || ft_strcmp(op[cmd - 1], "and") || ft_strcmp(op[cmd - 1], "or") == 0 || ft_strcmp(op[cmd - 1], "xor") == 0 || ft_strcmp(op[cmd -1], "lld") == 0)
+			else if (ft_strcmp(op[cmd - 1], "live") == 0 || ft_strcmp(op[cmd - 1], "ld") == 0 || ft_strcmp(op[cmd - 1], "and") == 0 || ft_strcmp(op[cmd - 1], "or") == 0 || ft_strcmp(op[cmd - 1], "xor") == 0 || ft_strcmp(op[cmd -1], "lld") == 0)
 			{
+				ft_printf("ici");
 				nb_octet += 4;
 			}
 		}

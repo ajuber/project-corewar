@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 10:54:24 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/15 14:50:19 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/17 16:20:29 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		op_or_ft(char *str, t_e *e)
 			free_line(&word);
 			return (1);
 		}
-		if (op == 3 && ft_strcmp(word, e->liste_op[i]) == 0)
+		if (op == 3 && word2 && ft_strcmp(e->liste_op[i], word2) == 0)
 		{
 			free_line(&word);
 			return (2);
