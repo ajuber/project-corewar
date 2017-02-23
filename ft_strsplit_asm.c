@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/16 11:59:50 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/11 16:36:32 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/23 17:20:34 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static int		ft_nb_word(char const *s)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == ';')
-			break;
+		if (s[i] == ';' || s[i] == '#')
+			break ;
 		if (s[i] != ' ' && s[i] != '\t' && word)
 		{
 			nb_word++;
@@ -34,12 +34,11 @@ static int		ft_nb_word(char const *s)
 		if (s[i] == ' ' || s[i] == '\t')
 			word = 1;
 		i++;
-//		ft_putchar(s[i]);
 	}
 	return (nb_word);
 }
 
-static char	**ft_allocation(char const *s, char **str, int nb_word)
+static char		**ft_allocation(char const *s, char **str, int nb_word)
 {
 	int word;
 	int i;
@@ -68,7 +67,7 @@ static char	**ft_allocation(char const *s, char **str, int nb_word)
 	return (str);
 }
 
-static char	**ft_split(char const *s, char **str, int nb_word)
+static char		**ft_split(char const *s, char **str, int nb_word)
 {
 	int word;
 	int i;
@@ -94,9 +93,8 @@ static char	**ft_split(char const *s, char **str, int nb_word)
 	return (str);
 }
 
-char	**ft_strsplit_asm(char const *s, int *size)
+char			**ft_strsplit_asm(char const *s, int *size)
 {
-//	int		nb_word;
 	char	**str;
 
 	str = NULL;

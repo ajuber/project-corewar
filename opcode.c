@@ -6,61 +6,60 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 17:06:17 by ajubert           #+#    #+#             */
-/*   Updated: 2017/01/31 16:43:16 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/23 16:26:35 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
+int				*ft_calc(int *bin, int i, int *k, char **str)
+{
+	int j;
+
+	j = 0;
+	if (str[i][j] == ',')
+		j++;
+	if (str[i][j] == 'r' && ft_isdigit(str[i][j + 1]) == 1)
+	{
+		bin[++k[0]] = 0;
+		bin[++k[0]] = 1;
+	}
+	if (str[i][j] == DIRECT_CHAR)
+	{
+		bin[++k[0]] = 1;
+		bin[++k[0]] = 0;
+	}
+	if ((str[i][j] == '-' && ft_isdigit(str[i][j + 1])) ||
+			ft_isdigit(str[i][j]))
+	{
+		bin[++k[0]] = 1;
+		bin[++k[0]] = 1;
+	}
+	return (bin);
+}
+
 unsigned char	opcode(char **str, int i, int size_str)
 {
-	int		bin[8];
-	unsigned char res;
-	int j;
-	int k;
+	int				*bin;
+	unsigned char	res;
+	int				j;
+	int				k;
 
+	if (!(bin = (int *)malloc(sizeof(int) * 8)))
+		exit(0);
 	res = 0;
-	k = 0;
-	while (k < 8)
-	{
+	k = -1;
+	while (++k < 8)
 		bin[k] = 0;
-		k++;
-	}
-	k = 0;
+	k = -1;
 	while (i < size_str)
 	{
 		j = 0;
-		if (str[i][j] == ',')
-			j++;
-		if (str[i][j] == 'r' && ft_isdigit(str[i][j + 1]) == 1)
-		{
-			bin[k] = 0;
-			bin[++k] = 1;
-			k++;
-		}
-		if (str[i][j] == DIRECT_CHAR)
-		{
-	/*		if (ft_strcmp(str[0], "live") == 0 || ft_strcmp(str[0], "ld") == 0 || ft_strcmp(str[0], "and") || ft_strcmp(str[0], "or") == 0 || ft_strcmp(str[0], "xor") == 0 || ft_strcmp(str[0], "lld") == 0)
-				nb_octet += 4;
-			else
-				nb_octet += 2;*/
-			bin[k] = 1;
-			bin[++k] = 0;
-			k++;
-		}
-		if ((str[i][j] == '-' && ft_isdigit(str[i][j + 1])) || ft_isdigit(str[i][j]))
-		{
-			bin[k] = 1;
-			bin[++k] = 1;
-			k++;
-		}
+		bin = ft_calc(bin, i, &k, str);
 		i++;
 	}
-	k = 0;
-	while (k < 8)
-	{
+	k = -1;
+	while (++k < 8)
 		res = res * 2 + bin[k];
-		k++;
-	}
 	return (res);
 }

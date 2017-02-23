@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 15:48:44 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/16 17:03:54 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/23 17:40:06 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,13 @@ int		ft_count_to(t_e *e, int i, char *str1)
 	char *str;
 
 	if (str1[ft_strlen(str1) - 1] == ',')
-		str = ft_strsub(str1, 2, ft_strlen(&str1[2])-1);
+	{
+		if (!(str = ft_strsub(str1, 2, ft_strlen(&str1[2]) - 1)))
+			exit(0);
+	}
 	else
-		str = ft_strsub(str1, 2, ft_strlen(&str1[2]));
+		if (!(str = ft_strsub(str1, 2, ft_strlen(&str1[2]))))
+			exit(0);
 	if (str[0])
 	{
 	}

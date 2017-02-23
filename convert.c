@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 16:11:33 by ajubert           #+#    #+#             */
-/*   Updated: 2017/01/20 16:43:42 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/21 14:47:21 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static char	*exception(char *result, int size)
 			return (NULL);
 		while (i < size)
 		{
-		result[i] = 0;
-		i++;
+			result[i] = 0;
+			i++;
 		}
 		return (result);
 	return (0);

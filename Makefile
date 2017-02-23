@@ -6,7 +6,7 @@
 #    By: ajubert <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/05 14:28:27 by ajubert           #+#    #+#              #
-#    Updated: 2017/01/23 16:55:23 by ajubert          ###   ########.fr        #
+#    Updated: 2017/02/21 15:43:41 by ajubert          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ SRC_C=	main_asm.c\
 		ft_free_all.c\
 		free_split.c\
 		free_tab.c\
-		free_liste_op.c
+		free_liste_op.c\
+		ft_yo_ne_se_pa.c
 
 SRC_O=		$(SRC_C:.c=.o)
 

@@ -6,11 +6,29 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 11:59:53 by ajubert           #+#    #+#             */
-/*   Updated: 2016/12/14 15:27:22 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/23 17:15:20 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+
+void	ft_fin_init(t_e *e)
+{
+	if (!(e->liste_op[9] = ft_strdup("ldi")))
+		exit(0);
+	if (!(e->liste_op[10] = ft_strdup("sti")))
+		exit(0);
+	if (!(e->liste_op[11] = ft_strdup("fork")))
+		exit(0);
+	if (!(e->liste_op[12] = ft_strdup("lld")))
+		exit(0);
+	if (!(e->liste_op[13] = ft_strdup("lldi")))
+		exit(0);
+	if (!(e->liste_op[14] = ft_strdup("lfork")))
+		exit(0);
+	if (!(e->liste_op[15] = ft_strdup("aff")))
+		exit(0);
+}
 
 void	init_liste_op(t_e *e)
 {
@@ -34,18 +52,5 @@ void	init_liste_op(t_e *e)
 		exit(0);
 	if (!(e->liste_op[8] = ft_strdup("zjmp")))
 		exit(0);
-	if (!(e->liste_op[9] = ft_strdup("ldi")))
-		exit(0);
-	if (!(e->liste_op[10] = ft_strdup("sti")))
-		exit(0);
-	if (!(e->liste_op[11] = ft_strdup("fork")))
-		exit(0);
-	if (!(e->liste_op[12] = ft_strdup("lld")))
-		exit(0);
-	if (!(e->liste_op[13] = ft_strdup("lldi")))
-		exit(0);
-	if (!(e->liste_op[14] = ft_strdup("lfork")))
-		exit(0);
-	if (!(e->liste_op[15] = ft_strdup("aff")))
-		exit(0);
+	ft_fin_init(e);
 }

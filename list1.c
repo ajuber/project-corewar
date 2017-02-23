@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 05:16:28 by ajubert           #+#    #+#             */
-/*   Updated: 2016/09/15 13:40:18 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/23 17:06:15 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static t_liste		*new_list(char *str)
 	return (new);
 }
 
-t_liste		*push_back_l(t_liste *begin_list, char *str)
+t_liste				*push_back_l(t_liste *begin_list, char *str)
 {
 	t_liste *new;
 	t_liste *tmp;

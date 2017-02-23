@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 13:07:35 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/17 16:54:09 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/23 17:05:15 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 int		main(int argc, char **argv)
 {
-	t_e e;
-	int i;
-	t_liste *tmp;
-	char *pl;
-//	int j;
-//	int k;
+	t_e			e;
+	int			i;
+	t_liste		*tmp;
+	char		*pl;
 
 	ft_bzero(&e, sizeof(t_e));
 	e.fd = open(argv[argc - 1], O_RDONLY);
@@ -40,7 +38,7 @@ int		main(int argc, char **argv)
 	if (!(e.str = ft_strsub(argv[argc - 1], 0, i)))
 		return (0);
 	e.str = ft_strjoin_free(e.str, e.str, ".cor");
-	e.fd1 = open("plop.cor", O_CREAT | O_RDWR | O_APPEND, 0640);
+	e.fd1 = open("plop.cor", O_CREAT | O_RDWR | O_APPEND | O_TRUNC, 0640);
 	if (e.fd1 == -1)
 	{
 		ft_printf("Error to create file\n");
@@ -54,10 +52,9 @@ int		main(int argc, char **argv)
 	tmp = e.liste;
 	while (i < e.nb_instruct)
 	{
-	while (op_or_ft(tmp->str, &e) == 0)
+		while (op_or_ft(tmp->str, &e) == 0)
 		{
-//				ft_printf("while %d\n",op_or_ft(tmp->str,&e));
-				tmp = tmp->next;
+			tmp = tmp->next;
 		}
 		if (op_or_ft(tmp->str, &e) == 2)
 		{
@@ -69,7 +66,9 @@ int		main(int argc, char **argv)
 			e.tab[i].nb_octet = count_octet(tmp->str, e.tab[i].cmd);
 			ft_printf("%d\n", e.tab[i].nb_octet);
 			e.header.prog_size += e.tab[i].nb_octet;
-			e.tab[i].str = ft_strdup(tmp->str);
+			if (!(e.tab[i].str = ft_strdup(tmp->str)))
+				exit(0);
+			free_line(&pl);
 		}
 		else if (op_or_ft(tmp->str, &e) == 3)
 		{
@@ -81,35 +80,32 @@ int		main(int argc, char **argv)
 			ft_printf("tab dans main  %s\n", e.tab[i].ft);
 			e.tab[i].cmd = 3;
 			e.tab[i].nb_octet = 0;
-			e.tab[i].str = ft_strdup(tmp->str);
+			if (!(e.tab[i].str = ft_strdup(tmp->str)))
+				exit(0);
 			free_line(&pl);
 		}
 		else
 		{
-//			ft_printf("operation");
 			e.tab[i].cmd = 1;
-	//		ft_printf("operation");
 			e.tab[i].nb_octet = count_octet(tmp->str, e.tab[i].cmd);
 			ft_printf("%d\n", e.tab[i].nb_octet);
-	//		ft_printf("operation");
-//			ft_printf("print %d", e.tab[i].nb_octet);
 			e.header.prog_size += e.tab[i].nb_octet;
-			e.tab[i].str = ft_strdup(tmp->str);
-	//		ft_printf("operation");
+			if (!(e.tab[i].str = ft_strdup(tmp->str)))
+				exit(0);
 		}
 		i++;
 		tmp = tmp->next;
 	}
 	create_header(&e);
-	//ft_putstr_size_fd(1, &e.header.magic[1], 1);
 	i = 0;
 	while (i < 4)
 	{
 		ft_printf_fd(e.fd1, "%c", e.header.magic[i]);
 		i++;
 	}
-	ft_putstr_size_fd(e.fd1, e.header.prog_name,PROG_NAME_LENGTH);
-	e.header.size = (unsigned char*)convert(e.header.prog_size, 8);
+	ft_putstr_size_fd(e.fd1, e.header.prog_name, PROG_NAME_LENGTH);
+	if (!(e.header.size = (unsigned char*)convert(e.header.prog_size, 8)))
+		exit(0);
 	i = 0;
 	while (i < 8)
 	{
