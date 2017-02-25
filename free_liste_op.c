@@ -14,7 +14,7 @@ void	free_liste_op(char ***tab)
 		}
 	}
 	if (tab[0])
-	free(tab[0]);
+		free(tab[0]);
 	tab[0] = NULL;
 
 }
