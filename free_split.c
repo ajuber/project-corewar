@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:40:50 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/23 17:40:57 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/25 08:30:17 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	free_split(char ***str, int size)
 	i = 0;
 	if (str && str[0])
 	{
-		while (i < size )
+		while (i < size + 1)
 		{
 			free_line(&str[0][i]);
 			i++;

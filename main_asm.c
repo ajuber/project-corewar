@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 13:07:35 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/23 17:05:15 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/25 09:27:17 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ int		main(int argc, char **argv)
 			pl = first_word(tmp->str);
 			if (!(e.tab[i].ft = ft_strsub(pl, 0, ft_strlen(pl) - 1)))
 				exit(0);
-			ft_printf("tab dans main 2  %s\n", e.tab[i].ft);
+		//	ft_printf("tab dans main 2  %s\n", e.tab[i].ft);
 			e.tab[i].cmd = 2;
 			e.tab[i].nb_octet = count_octet(tmp->str, e.tab[i].cmd);
-			ft_printf("%d\n", e.tab[i].nb_octet);
+		//	ft_printf("%d\n", e.tab[i].nb_octet);
 			e.header.prog_size += e.tab[i].nb_octet;
 			if (!(e.tab[i].str = ft_strdup(tmp->str)))
 				exit(0);
@@ -74,10 +74,10 @@ int		main(int argc, char **argv)
 		{
 			e.tab[i].nb_octet = 0;
 			pl = first_word(tmp->str);
-			ft_printf("pl : %s\n", pl);
+		//	ft_printf("pl : %s\n", pl);
 			if (!(e.tab[i].ft = ft_strsub(pl, 0, ft_strlen(pl) - 1)))
 				exit(0);
-			ft_printf("tab dans main  %s\n", e.tab[i].ft);
+		//	ft_printf("tab dans main  %s\n", e.tab[i].ft);
 			e.tab[i].cmd = 3;
 			e.tab[i].nb_octet = 0;
 			if (!(e.tab[i].str = ft_strdup(tmp->str)))
@@ -88,7 +88,7 @@ int		main(int argc, char **argv)
 		{
 			e.tab[i].cmd = 1;
 			e.tab[i].nb_octet = count_octet(tmp->str, e.tab[i].cmd);
-			ft_printf("%d\n", e.tab[i].nb_octet);
+		//	ft_printf("%d\n", e.tab[i].nb_octet);
 			e.header.prog_size += e.tab[i].nb_octet;
 			if (!(e.tab[i].str = ft_strdup(tmp->str)))
 				exit(0);
@@ -121,7 +121,7 @@ int		main(int argc, char **argv)
 	}
 	print_prog(&e);
 	ft_free_all(&e);
-	while (1)
-	{}
+//	while (1)
+//	{}
 	return (0);
 }

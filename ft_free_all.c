@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:20:53 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/23 17:20:56 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/25 09:19:18 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_free_all(t_e *e)
 	unsigned char **tmp;
 
 	tmp = &e->header.magic;
-	ft_printf("\ndans ft_free_all \n");
+//	ft_printf("\ndans ft_free_all \n");
 	free_line((char **)tmp);
 	free_tab(&e->tab, e->nb_instruct);
 	ft_free_list_l(&e->liste);
