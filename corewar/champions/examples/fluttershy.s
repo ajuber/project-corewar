@@ -6,7 +6,6 @@
 
 entry:
 	fork	%:coregeni
-	st		%:coregeni
 	live	%42
 	fork	%:torpgeni
 	st		r1, 6

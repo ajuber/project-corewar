@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 13:12:36 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/27 17:13:55 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/23 16:38:06 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <fcntl.h>
 # include "libft.h"
 
-#define malloc(x) 0
 # define NB_OP 16
 
 typedef struct			s_liste
@@ -80,7 +79,7 @@ void					create_header(t_e *e);
 int						count_nb_instruct(t_liste *liste, t_e *e);
 int						op_or_ft(char *str, t_e *e);
 char					*first_word(char *str);
-int						count_octet(t_e *e, char *str, int cmd);
+int						count_octet(char *str, int cmd);
 void					init_liste_op(t_e *e);
 char					**ft_strsplit_asm(char const *s, int *size);
 char					*convert(int n, int size);
