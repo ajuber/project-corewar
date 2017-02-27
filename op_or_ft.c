@@ -94,8 +94,10 @@ int		op_or_ft(char *str, t_e *e)
 	if (e->op == 3)
 	{
 		free_line(&word);
+		free_line(&word2);
 		return (3);
 	}
 	free_line(&word);
+	free_line(&word2);
 	return (0);
 }

@@ -42,7 +42,6 @@ unsigned char	opcode(char **str, int i, int size_str)
 {
 	int				*bin;
 	unsigned char	res;
-	int				j;
 	int				k;
 
 	if (!(bin = (int *)malloc(sizeof(int) * 8)))
@@ -54,12 +53,12 @@ unsigned char	opcode(char **str, int i, int size_str)
 	k = -1;
 	while (i < size_str)
 	{
-		j = 0;
 		bin = ft_calc(bin, i, &k, str);
 		i++;
 	}
 	k = -1;
 	while (++k < 8)
 		res = res * 2 + bin[k];
+	ft_memdel((void *)&bin);
 	return (res);
 }

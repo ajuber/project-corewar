@@ -31,7 +31,10 @@ int		ft_count_to(t_e *e, int i, char *str1)
 	{
 		res += e->tab[i + j].nb_octet;
 		if ((e->tab[i + j].cmd == 3 || e->tab[i+ j].cmd == 2) && ft_strcmp(str, e->tab[i + j].ft) == 0)
+		{
+			free_line(&str);
 			return (res);
+		}
 	}
 	res = 0;
 	j = -1;
@@ -41,7 +44,11 @@ int		ft_count_to(t_e *e, int i, char *str1)
 			res += e->tab[i - j].nb_octet;
 		res -= e->tab[i - j].nb_octet;
 		if ((e->tab[i - j].cmd == 3 || e->tab[i- j].cmd == 2) && ft_strcmp(e->tab[i - j].ft, str) == 0)
+		{
+			free_line(&str);
 			return (res);
+		}
 	}
+	free_line(&str);
 	return (0);
 }

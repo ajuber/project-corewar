@@ -90,6 +90,7 @@ int		main(int argc, char **argv)
 			e.tab[i].nb_octet = count_octet(tmp->str, e.tab[i].cmd);
 		//	ft_printf("%d\n", e.tab[i].nb_octet);
 			e.header.prog_size += e.tab[i].nb_octet;
+			e.tab[i].ft = NULL;
 			if (!(e.tab[i].str = ft_strdup(tmp->str)))
 				exit(0);
 		}

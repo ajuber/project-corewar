@@ -22,7 +22,8 @@ void	free_tab(t_op_ft **tab, int size)
 		while (i < size)
 		{
 			free_line(&tab[0][i].str);
-			free_line(&tab[0][i].ft);
+			if (tab[0][i].ft)
+				free_line(&tab[0][i].ft);
 			i++;
 		}
 	}

@@ -49,7 +49,7 @@ char		*convert(unsigned int n, int size)
 		i++;
 	}
 	i = 1;
-	while (n > 0)
+	while (n > 0 && size - i >= 0)
 	{
 		result[size - i] = n % 256;
 		n /= 256;
