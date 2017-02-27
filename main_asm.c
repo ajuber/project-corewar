@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 13:07:35 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/25 09:27:17 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/27 17:12:13 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		main(int argc, char **argv)
 				exit(0);
 		//	ft_printf("tab dans main 2  %s\n", e.tab[i].ft);
 			e.tab[i].cmd = 2;
-			e.tab[i].nb_octet = count_octet(tmp->str, e.tab[i].cmd);
+			e.tab[i].nb_octet = count_octet(&e, tmp->str, e.tab[i].cmd);
 		//	ft_printf("%d\n", e.tab[i].nb_octet);
 			e.header.prog_size += e.tab[i].nb_octet;
 			if (!(e.tab[i].str = ft_strdup(tmp->str)))
@@ -87,7 +87,7 @@ int		main(int argc, char **argv)
 		else
 		{
 			e.tab[i].cmd = 1;
-			e.tab[i].nb_octet = count_octet(tmp->str, e.tab[i].cmd);
+			e.tab[i].nb_octet = count_octet(&e, tmp->str, e.tab[i].cmd);
 		//	ft_printf("%d\n", e.tab[i].nb_octet);
 			e.header.prog_size += e.tab[i].nb_octet;
 			e.tab[i].ft = NULL;

@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 12:06:30 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/25 10:52:33 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/27 17:15:16 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		foret_if(char **op, int cmd, int i)
 	return (0);
 }
 
-int		count_octet(char *str, int cmd)
+int		count_octet(t_e *e, char *str, int cmd)
 {
 	char	**op;
 	int		nb_octet;
@@ -69,7 +69,10 @@ int		count_octet(char *str, int cmd)
 
 	size = 0;
 	if (!(op = ft_strsplit_asm((const char *)str, &size)))
+	{
+		ft_free_all(e);
 		exit(0);
+	}
 	nb_octet = 1;
 	nb_octet += if_else1(op, cmd);
 	i = cmd;
