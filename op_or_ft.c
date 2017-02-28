@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 10:54:24 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/23 16:44:47 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/28 15:07:10 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,12 @@ int		calc(char **word, char **word2, t_e *e)
 	return (0);
 }
 
+void	free_word(char **word, char **word2)
+{
+	free_line(word);
+	free_line(word2);
+}
+
 int		op_or_ft(char *str, t_e *e)
 {
 	char	*word;
@@ -93,11 +99,9 @@ int		op_or_ft(char *str, t_e *e)
 	}
 	if (e->op == 3)
 	{
-		free_line(&word);
-		free_line(&word2);
+		free_word(&word, &word2);
 		return (3);
 	}
-	free_line(&word);
-	free_line(&word2);
+	free_word(&word, &word2);
 	return (0);
 }

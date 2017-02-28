@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 12:06:30 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/25 10:52:33 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/28 15:53:06 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 int		if_else(char **op, int cmd)
 {
-			if (ft_strcmp(op[cmd - 1], "zjmp") == 0 ||
-					ft_strcmp(op[cmd - 1], "ldi") == 0 ||
-					ft_strcmp(op[cmd - 1], "sti") == 0 ||
-					ft_strcmp(op[cmd - 1], "fork") == 0 ||
-					ft_strcmp(op[cmd - 1], "lldi") == 0 ||
-					ft_strcmp(op[cmd - 1], "lfork") == 0)
-				return (2);
-			else if (ft_strcmp(op[cmd - 1], "live") == 0 ||
-					ft_strcmp(op[cmd - 1], "ld") == 0 ||
-					ft_strcmp(op[cmd - 1], "and") == 0 ||
-					ft_strcmp(op[cmd - 1], "or") == 0 ||
-					ft_strcmp(op[cmd - 1], "xor") == 0 ||
-					ft_strcmp(op[cmd -1], "lld") == 0)
-				return (4);
+	if (ft_strcmp(op[cmd - 1], "zjmp") == 0 ||
+			ft_strcmp(op[cmd - 1], "ldi") == 0 ||
+			ft_strcmp(op[cmd - 1], "sti") == 0 ||
+			ft_strcmp(op[cmd - 1], "fork") == 0 ||
+			ft_strcmp(op[cmd - 1], "lldi") == 0 ||
+			ft_strcmp(op[cmd - 1], "lfork") == 0)
+		return (2);
+	else if (ft_strcmp(op[cmd - 1], "live") == 0 ||
+			ft_strcmp(op[cmd - 1], "ld") == 0 ||
+			ft_strcmp(op[cmd - 1], "and") == 0 ||
+			ft_strcmp(op[cmd - 1], "or") == 0 ||
+			ft_strcmp(op[cmd - 1], "xor") == 0 ||
+			ft_strcmp(op[cmd - 1], "lld") == 0)
+		return (4);
 	return (0);
 }
 

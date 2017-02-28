@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 16:11:33 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/21 14:47:21 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/28 14:11:30 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static char	*exception(char *result, int size)
 	int i;
 
 	i = 0;
-		result = (char*)malloc(size);
-		if (!result)
-			return (NULL);
-		while (i < size)
-		{
-			result[i] = 0;
-			i++;
-		}
-		return (result);
+	result = (char*)malloc(size);
+	if (!result)
+		return (NULL);
+	while (i < size)
+	{
+		result[i] = 0;
+		i++;
+	}
+	return (result);
 	return (0);
 }
 

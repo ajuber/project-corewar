@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 18:38:53 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/25 10:08:29 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/02/28 15:53:37 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	create_comment(t_liste *tmp, int i, int j, t_e *e)
 	i++;
 	while (tmp->str[i + j] != '"')
 		j++;
-	if (!(e->header.comment = (char *)ft_memalloc(sizeof(char) * (COMMENT_LENGTH + 1))))
+	if (!(e->header.comment = (char *)ft_memalloc(sizeof(char) *
+					(COMMENT_LENGTH + 1))))
 		exit(0);
 	e->header.comment = ft_strncpy(e->header.comment, &tmp->str[i], j);
 }
@@ -35,7 +36,8 @@ void	create_name(t_liste *tmp, int i, int j, t_e *e)
 	i++;
 	while (tmp->str[i + j] != '"')
 		j++;
-	if (!(e->header.prog_name = (char *)ft_memalloc(sizeof(char) * (PROG_NAME_LENGTH + 1))))
+	if (!(e->header.prog_name = (char *)ft_memalloc(sizeof(char) *
+					(PROG_NAME_LENGTH + 1))))
 		exit(0);
 	e->header.prog_name = ft_strncpy(e->header.prog_name, &tmp->str[i], j);
 }
