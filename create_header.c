@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 18:38:53 by ajubert           #+#    #+#             */
-/*   Updated: 2017/03/02 17:20:01 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/03/02 17:31:49 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,14 @@ void	create_name(t_liste *tmp, int i, int j, t_e *e)
 			tmp = tmp->next;
 			while (k > 0)
 			{
-				e->header.prog_name = ft_strjoin_free(e->header.prog_name, e->header.prog_name, ".");
+				e->header.prog_name = ft_strjoin_free(e->header.prog_name, e->header.prog_name, "\n");
 				e->header.prog_name = ft_strjoin_free(e->header.prog_name, e->header.prog_name, tmp->str);
 				k--;
 				tmp = tmp->next;
 			}
 			if (!(str = ft_strsub(tmp->str, 0, j)))
 				exit(0);
-				e->header.prog_name = ft_strjoin_free(e->header.prog_name, e->header.prog_name, ".");
+				e->header.prog_name = ft_strjoin_free(e->header.prog_name, e->header.prog_name, "\n");
 			e->header.prog_name = ft_strjoin_free(e->header.prog_name, e->header.prog_name, str);
 			return ;
 		}
