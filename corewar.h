@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 13:12:36 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/28 15:46:09 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/03/02 14:38:22 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,20 @@ typedef struct			s_op_ft
 	char				*str;
 }						t_op_ft;
 
+typedef struct			s_sepa
+{
+	int					dir_sepa;
+	int					ind_sepa;
+}						t_sepa;
+
 typedef struct			s_ijkl
 {
 	int					i;
 	int					j;
 	int					l;
 	char				**str;
+	unsigned char		*print;
+	t_sepa				z;
 }						t_ijkl;
 
 typedef struct			s_jk
@@ -49,12 +57,6 @@ typedef struct			s_jk
 	int					j;
 	int					k;
 }						t_jk;
-
-typedef struct			s_sepa
-{
-	int					dir_sepa;
-	int					ind_sepa;
-}						t_sepa;
 
 typedef struct			s_e
 {
@@ -92,7 +94,7 @@ void					free_split(char ***str, int size);
 void					free_tab(t_op_ft **tab, int size);
 void					ft_free_list_l(t_liste **begin_list);
 void					free_liste_op(char ***tab);
-unsigned char			*ft_yo_ne_se_pa(t_e *e, unsigned char *print,
+unsigned char			*ft_yo_ne_se_pa(t_e *e, /*unsigned char *print,*/
 		int *k, t_ijkl s);
 
 #endif

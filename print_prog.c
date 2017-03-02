@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:40:52 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/28 15:47:13 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/03/02 14:52:27 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,27 +59,26 @@ void			print_prog(t_e *e)
 {
 	t_ijkl				s;
 	int					size_str;
-	unsigned char		*print;
 	int					k;
 
 	s.l = 0;
 	while (s.l < e->nb_instruct)
 	{
-		if (!(print = foret(e, &s, &size_str)))
+		if (!(s.print = foret(e, &s, &size_str)))
 			return ;
 		k = 0;
-		print[k] = search_code(s.str[s.j], e);
+		s.print[k] = search_code(s.str[s.j], e);
 		s.i = s.j + 1;
 		if (test_opcode(s.str[s.j]))
-			print[++k] = opcode(s.str, s.i, size_str);
+			s.print[++k] = opcode(s.str, s.i, size_str);
 		while (s.i < size_str)
 		{
 			k++;
-			print = ft_yo_ne_se_pa(e, print, &k, s);
+			s.print = ft_yo_ne_se_pa(e, &k, s);
 			k--;
 			s.i++;
 		}
-		fin(e, &s, print, size_str);
+		fin(e, &s, s.print, size_str);
 		s.l++;
 	}
 }
