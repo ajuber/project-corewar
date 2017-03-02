@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 15:48:44 by ajubert           #+#    #+#             */
-/*   Updated: 2017/02/28 14:07:43 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/03/02 16:22:02 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int		ft_count_to(t_e *e, int i, char *str1)
 		if ((e->tab[i + j].cmd == 3 || e->tab[i + j].cmd == 2) &&
 				ft_strcmp(str, e->tab[i + j].ft) == 0)
 		{
+			if (e->tab[i + j].cmd == 2)
+				res -= e->tab[i + j].nb_octet;
 			free_line(&str);
 			return (res);
 		}
