@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 18:38:53 by ajubert           #+#    #+#             */
-/*   Updated: 2017/03/04 16:09:59 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/03/04 16:55:35 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	create_name(t_liste *tmp, int i, int j, t_e *e)
 	if (tmp->str[i + j])
 		e->header.prog_name = ft_strncpy(e->header.prog_name, &tmp->str[i], j);
 	else
-		e->header.prog_name = create_headerfin(e->header.comment, j, tmp, i);
+		e->header.prog_name = create_headerfin(e->header.prog_name, j, tmp, i);
 }
 
 int		order(t_liste *tmp)
