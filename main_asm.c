@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 13:07:35 by ajubert           #+#    #+#             */
-/*   Updated: 2017/03/02 15:31:27 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/03/02 17:09:08 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		main(int argc, char **argv)
 	if (!(e.str = ft_strsub(argv[argc - 1], 0, i)))
 		return (0);
 	e.str = ft_strjoin_free(e.str, e.str, ".cor");
-	e.fd1 = open(e.str, O_CREAT | O_RDWR | O_APPEND | O_TRUNC, 0640);
+	e.fd1 = open("plop.cor", O_CREAT | O_RDWR | O_APPEND | O_TRUNC, 0640);
 	if (e.fd1 == -1)
 		return (ft_printf("Error to create file\n"));
 	init_liste_op(&e);

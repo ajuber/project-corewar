@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 18:38:53 by ajubert           #+#    #+#             */
-/*   Updated: 2017/03/02 17:31:49 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/03/04 16:09:59 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,24 @@
 
 void	create_comment(t_liste *tmp, int i, int j, t_e *e)
 {
+	if (!(e->header.comment = (char *)ft_memalloc(sizeof(char) *
+					(COMMENT_LENGTH + 1))))
+		exit(0);
 	while (tmp && !(ft_strstr(tmp->str, COMMENT_CMD_STRING)))
 		tmp = tmp->next;
 	while (tmp->str[i] != '"')
 		i++;
 	i++;
-	while (tmp->str[i + j] != '"')
+	while (tmp->str[i + j] && tmp->str[i + j] != '"')
 		j++;
-	if (!(e->header.comment = (char *)ft_memalloc(sizeof(char) *
-					(COMMENT_LENGTH + 1))))
-		exit(0);
-	e->header.comment = ft_strncpy(e->header.comment, &tmp->str[i], j);
+	if (tmp->str[i + j])
+		e->header.comment = ft_strncpy(e->header.comment, &tmp->str[i], j);
+	else
+		e->header.comment = create_headerfin(e->header.comment, j, tmp, i);
 }
 
 void	create_name(t_liste *tmp, int i, int j, t_e *e)
 {
-	int k;
-	t_liste *tmp1;
-	char *str;
-
 	if (!(e->header.prog_name = (char *)ft_memalloc(sizeof(char) *
 				(PROG_NAME_LENGTH + 1))))
 		exit(0);
@@ -44,37 +43,9 @@ void	create_name(t_liste *tmp, int i, int j, t_e *e)
 	while (tmp->str[i + j] && tmp->str[i + j] != '"')
 		j++;
 	if (tmp->str[i + j])
-	{
 		e->header.prog_name = ft_strncpy(e->header.prog_name, &tmp->str[i], j);
-		return ;
-	}
-	k = 0;
-	tmp1 = tmp->next;
-	while (tmp1)
-	{
-		j = 0;
-		while (tmp1->str[j] && tmp1->str[j] != '"')
-			j++;
-		if (tmp1->str[j])
-		{
-			e->header.prog_name = ft_strcpy(e->header.prog_name, &tmp->str[i]);
-			tmp = tmp->next;
-			while (k > 0)
-			{
-				e->header.prog_name = ft_strjoin_free(e->header.prog_name, e->header.prog_name, "\n");
-				e->header.prog_name = ft_strjoin_free(e->header.prog_name, e->header.prog_name, tmp->str);
-				k--;
-				tmp = tmp->next;
-			}
-			if (!(str = ft_strsub(tmp->str, 0, j)))
-				exit(0);
-				e->header.prog_name = ft_strjoin_free(e->header.prog_name, e->header.prog_name, "\n");
-			e->header.prog_name = ft_strjoin_free(e->header.prog_name, e->header.prog_name, str);
-			return ;
-		}
-		k++;
-		tmp1 = tmp1->next;
-	}
+	else
+		e->header.prog_name = create_headerfin(e->header.comment, j, tmp, i);
 }
 
 int		order(t_liste *tmp)

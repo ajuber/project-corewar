@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 15:48:44 by ajubert           #+#    #+#             */
-/*   Updated: 2017/03/02 16:22:02 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/03/04 16:30:24 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,8 @@ int		count_1(t_e *e, int i, char *str)
 	return (0);
 }
 
-int		ft_count_to(t_e *e, int i, char *str1)
+char	*norme3(char *str, char *str1)
 {
-	int		res;
-	int		j;
-	char	*str;
-
 	if (str1[ft_strlen(str1) - 1] == ',')
 	{
 		if (!(str = ft_strsub(str1, 2, ft_strlen(&str1[2]) - 1)))
@@ -48,6 +44,17 @@ int		ft_count_to(t_e *e, int i, char *str1)
 	}
 	else if (!(str = ft_strsub(str1, 2, ft_strlen(&str1[2]))))
 		exit(0);
+	return (str);
+}
+
+int		ft_count_to(t_e *e, int i, char *str1)
+{
+	int		res;
+	int		j;
+	char	*str;
+
+	str = NULL;
+	str = norme3(str , str1);
 	res = 0;
 	j = -1;
 	while (i + ++j < e->nb_instruct)

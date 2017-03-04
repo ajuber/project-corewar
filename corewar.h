@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/15 13:12:36 by ajubert           #+#    #+#             */
-/*   Updated: 2017/03/02 15:23:28 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/03/04 16:07:31 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ void					ft_free_list_l(t_liste **begin_list);
 void					free_liste_op(char ***tab);
 unsigned char			*ft_yo_ne_se_pa(t_e *e, int *k, t_ijkl s);
 void					create_tab(t_e *e);
+char					*create_headerfin(char *res, int j, t_liste *tmp, int i);
 
 #endif
