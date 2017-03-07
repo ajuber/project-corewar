@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 15:48:44 by ajubert           #+#    #+#             */
-/*   Updated: 2017/03/04 16:30:24 by ajubert          ###   ########.fr       */
+/*   Updated: 2017/03/07 13:36:00 by mdos-san         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		ft_count_to(t_e *e, int i, char *str1)
 	char	*str;
 
 	str = NULL;
-	str = norme3(str , str1);
+	str = norme3(str, str1);
 	res = 0;
 	j = -1;
 	while (i + ++j < e->nb_instruct)
